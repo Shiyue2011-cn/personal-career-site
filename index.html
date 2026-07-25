@@ -476,13 +476,6 @@
         linear-gradient(180deg, transparent, rgba(241, 237, 230, 0.65) 20%, rgba(241, 237, 230, 0.65) 80%, transparent);
     }
 
-    .about__body {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.7fr);
-      gap: clamp(1.75rem, 4vw, 3.25rem);
-      align-items: start;
-    }
-
     .about__text {
       max-width: 46rem;
     }
@@ -495,27 +488,6 @@
     }
 
     .about__text p:last-child { margin-bottom: 0; }
-
-    .about__photo {
-      position: sticky;
-      top: calc(var(--nav-h) + 1.25rem);
-      width: min(100%, 340px);
-      justify-self: end;
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: var(--navy-soft);
-      border: 1px solid rgba(201, 169, 110, 0.45);
-      box-shadow: 0 18px 40px rgba(26, 42, 74, 0.12);
-    }
-
-    .about__photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 12%;
-      display: block;
-      filter: saturate(0.94) contrast(1.03);
-    }
 
     .stats {
       display: grid;
@@ -1284,15 +1256,6 @@
     @media (max-width: 960px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
       .comp-grid { grid-template-columns: 1fr; }
-      .about__body {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .about__photo {
-        position: static;
-        justify-self: center;
-        width: min(100%, 280px);
-      }
       .hero__layout {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1497,41 +1460,31 @@
           <div class="divider"></div>
         </div>
 
-        <div class="about__body reveal">
-          <div class="about__text">
-            <p class="lang-en">
-              I'm a Brand &amp; Growth specialist who believes great strategy shouldn't stay in boardrooms — it should feel human, travel across cultures, and land with impact.
-            </p>
-            <p class="lang-zh">
-              我是一位拥有十年以上中英市场经验的品牌与增长专家。我相信，好的战略不该止步于会议室——它应该有人情味，能穿越文化，能真正产生影响。
-            </p>
-            <p class="lang-en">
-              For the past decade, I've been bridging China and UK markets — helping brands find their voice, tell stories that resonate, and build trust across languages and audiences. I work across brand positioning, GTM, and marketing technology, with a growing focus on AI orchestration.
-            </p>
-            <p class="lang-zh">
-              过去十年，我穿梭于中国和英国市场之间，帮助品牌找到自己的声音，讲出让人共鸣的故事，在不同语言和受众之间建立信任。我的工作覆盖品牌战略、GTM执行和营销技术，并越来越聚焦于AI在营销场景中的落地。
-            </p>
-            <p class="lang-en">
-              What drives me is making complex things feel simple: translating complex ideas into narratives that move people to act. And I do it all with warmth, clarity, and a genuine curiosity about how people connect — with brands, with each other, and with the world around them.
-            </p>
-            <p class="lang-zh">
-              把复杂的想法变成打动人心的叙事是我工作的核心与动力。我始终相信，做事的方式和做事的结果同样重要：带着温度、清晰和真诚的好奇心，去理解人如何与彼此、与品牌、与这个世界连接。
-            </p>
-            <p class="lang-en">
-              Outside work, I'm driven by curiosity and a love for learning. I've built an AI content system, a conversational AI resume agent, and a desktop pet time tracker, and I'm always tinkering with something new — because I believe the best way to understand new things is to play with it, and the best way to grow is to keep iterating.
-            </p>
-            <p class="lang-zh">
-              工作之外，我是一个充满好奇心的学习者。我独立开发了AI内容系统、AI简历助手和桌面宠物时间记录器——我相信，最好的学习方式就是动手去做，最好的成长方式是不断迭代。
-            </p>
-          </div>
-          <figure class="about__photo">
-            <img
-              src="assets/rong-luo.png"
-              alt="Portrait of Rong Luo / 骆容个人照片"
-              width="720"
-              height="900"
-            />
-          </figure>
+        <div class="about__text reveal">
+          <p class="lang-en">
+            I'm a Brand &amp; Growth specialist who believes great strategy shouldn't stay in boardrooms — it should feel human, travel across cultures, and land with impact.
+          </p>
+          <p class="lang-zh">
+            我是一位拥有十年以上中英市场经验的品牌与增长专家。我相信，好的战略不该止步于会议室——它应该有人情味，能穿越文化，能真正产生影响。
+          </p>
+          <p class="lang-en">
+            For the past decade, I've been bridging China and UK markets — helping brands find their voice, tell stories that resonate, and build trust across languages and audiences. I work across brand positioning, GTM, and marketing technology, with a growing focus on AI orchestration.
+          </p>
+          <p class="lang-zh">
+            过去十年，我穿梭于中国和英国市场之间，帮助品牌找到自己的声音，讲出让人共鸣的故事，在不同语言和受众之间建立信任。我的工作覆盖品牌战略、GTM执行和营销技术，并越来越聚焦于AI在营销场景中的落地。
+          </p>
+          <p class="lang-en">
+            What drives me is making complex things feel simple: translating complex ideas into narratives that move people to act. And I do it all with warmth, clarity, and a genuine curiosity about how people connect — with brands, with each other, and with the world around them.
+          </p>
+          <p class="lang-zh">
+            把复杂的想法变成打动人心的叙事是我工作的核心与动力。我始终相信，做事的方式和做事的结果同样重要：带着温度、清晰和真诚的好奇心，去理解人如何与彼此、与品牌、与这个世界连接。
+          </p>
+          <p class="lang-en">
+            Outside work, I'm driven by curiosity and a love for learning. I've built an AI content system, a conversational AI resume agent, and a desktop pet time tracker, and I'm always tinkering with something new — because I believe the best way to understand new things is to play with it, and the best way to grow is to keep iterating.
+          </p>
+          <p class="lang-zh">
+            工作之外，我是一个充满好奇心的学习者。我独立开发了AI内容系统、AI简历助手和桌面宠物时间记录器——我相信，最好的学习方式就是动手去做，最好的成长方式是不断迭代。
+          </p>
         </div>
 
         <div class="stats reveal">
