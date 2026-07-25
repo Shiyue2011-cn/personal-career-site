@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rong Luo | Brand & Growth Specialist</title>
+  <meta name="description" content="Senior Brand & Growth specialist with 10+ years of cross-cultural experience across China and UK markets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1A2A4A;
+      --navy-deep: #0F1A30;
+      --navy-soft: #243556;
+      --gold: #C9A96E;
+      --gold-light: #E2C892;
+      --gold-dark: #A8894F;
+      --bg: #F8F6F3;
+      --bg-warm: #F1EDE6;
+      --text: #2C3340;
+      --text-muted: #5C6570;
+      --white: #FFFFFF;
+      --line: rgba(26, 42, 74, 0.12);
+      --shadow: 0 18px 50px rgba(15, 26, 48, 0.08);
+      --radius: 4px;
+      --nav-h: 76px;
+      --max: 1120px;
+
+      /* Type scale — same level = same size */
+      --fs-display: clamp(3rem, 6.5vw, 4.5rem);
+      --fs-section: clamp(2rem, 3.4vw, 2.5rem);
+      --fs-card: 1.5rem;
+      --fs-sub: 1.2rem;
+      --fs-lead: 1.125rem;
+      --fs-body: 1.05rem;
+      --fs-nav: 1.15rem;
+      --fs-logo: 1.65rem;
+      --fs-ui: 0.95rem;
+      --fs-label: 0.8rem;
+      --fs-meta: 0.875rem;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
+
+    body {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: var(--fs-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* Language switch — do NOT put class "lang-zh" on <html> (it would hide the whole page) */
+    html:not([data-lang="zh"]) .lang-zh { display: none !important; }
+    html[data-lang="zh"] .lang-en { display: none !important; }
+
+    .container {
+      width: min(100% - 2.5rem, var(--max));
+      margin-inline: auto;
+    }
+
+    .lang-toggle {
+      flex-shrink: 0;
+      margin-left: 0.35rem;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid rgba(26, 42, 74, 0.22);
+      background: transparent;
+      color: var(--navy);
+      font-family: inherit;
+      font-size: var(--fs-ui);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--gold);
+      color: var(--navy-deep);
+      background: rgba(201, 169, 110, 0.12);
+    }
+
+    /* ——— Nav ——— */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(248, 246, 243, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(248, 246, 243, 0.96);
+      border-bottom-color: var(--line);
+      box-shadow: 0 8px 24px rgba(15, 26, 48, 0.06);
+    }
+
+    .nav__inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav__logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-logo);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .nav__logo .lang-en > span,
+    .nav__logo .lang-zh > span { color: var(--gold); }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem 1.4rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav__links a {
+      font-size: var(--fs-nav);
+      font-weight: 500;
+      color: var(--navy-soft);
+      letter-spacing: 0.01em;
+      position: relative;
+      padding: 0.3rem 0;
+      transition: color 0.25s ease;
+    }
+
+    .nav__links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1.5px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.28s ease;
+    }
+
+    .nav__links a:hover,
+    .nav__links a.active { color: var(--navy); }
+
+    .nav__links a:hover::after,
+    .nav__links a.active::after { transform: scaleX(1); }
+
+    .nav__toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: transparent;
+      border-radius: var(--radius);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: var(--navy);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .nav__toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav__toggle.open span:nth-child(2) { opacity: 0; }
+    .nav__toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ——— Hero ——— */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: calc(var(--nav-h) + 2.5rem) 0 3.5rem;
+      background:
+        radial-gradient(ellipse 55% 50% at 88% 35%, rgba(201, 169, 110, 0.14), transparent 60%),
+        linear-gradient(135deg, #F8F6F3 0%, #F3EFE8 48%, #EDE7DC 100%);
+      overflow: hidden;
+    }
+
+    .hero__layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+      align-items: center;
+      width: min(100% - 2.5rem, var(--max));
+      margin-inline: auto;
+    }
+
+    .hero__content { max-width: 34rem; }
+
+    .hero__name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-display);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.15s forwards;
+    }
+
+    .hero__name em {
+      font-style: normal;
+      color: var(--gold-dark);
+    }
+
+    .hero__title {
+      font-size: var(--fs-lead);
+      font-weight: 500;
+      color: var(--navy-soft);
+      letter-spacing: 0.02em;
+      margin-bottom: 1.15rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.28s forwards;
+    }
+
+    .hero__title span { color: var(--gold-dark); }
+
+    .hero__lead {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--navy-soft);
+      max-width: 34rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.4s forwards;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem 1rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.55s forwards;
+    }
+
+    .hero__visual {
+      position: relative;
+      justify-self: end;
+      width: min(100%, 400px);
+      aspect-ratio: 4 / 5;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.3s forwards;
+    }
+
+    .hero__frame {
+      position: absolute;
+      inset: 0.9rem 0.9rem 0 0.9rem;
+      border: 1px solid rgba(201, 169, 110, 0.55);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero__frame::before,
+    .hero__frame::after {
+      content: "";
+      position: absolute;
+      background: var(--bg);
+    }
+
+    .hero__frame::before {
+      width: 28%;
+      height: 1px;
+      top: -1px;
+      left: 36%;
+    }
+
+    .hero__frame::after {
+      width: 1px;
+      height: 18%;
+      right: -1px;
+      top: 41%;
+      background: linear-gradient(180deg, transparent, var(--bg) 30%, var(--bg) 70%, transparent);
+    }
+
+    .hero__photo {
+      position: absolute;
+      inset: 0 1.8rem 1.8rem 0;
+      z-index: 1;
+      overflow: hidden;
+      background: var(--navy-soft);
+    }
+
+    .hero__photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(248, 246, 243, 0.42) 0%, transparent 32%),
+        linear-gradient(180deg, transparent 72%, rgba(26, 42, 74, 0.18) 100%);
+      pointer-events: none;
+    }
+
+    .hero__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      display: block;
+      filter: saturate(0.94) contrast(1.03);
+      transition: transform 0.8s ease, filter 0.8s ease;
+    }
+
+    .hero__visual:hover .hero__photo img {
+      transform: scale(1.025);
+      filter: saturate(1) contrast(1.04);
+    }
+
+    .hero__caption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      padding: 0.35rem 0;
+      background: linear-gradient(180deg, transparent, #F3EFE8 18%, #F3EFE8 82%, transparent);
+    }
+
+    .hero__caption-group {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35em;
+      writing-mode: horizontal-tb;
+      text-orientation: mixed;
+      letter-spacing: 0.12em;
+    }
+
+    .hero__caption-word {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      letter-spacing: 0.18em;
+    }
+
+    .hero__caption-sep {
+      display: block;
+      line-height: 1;
+      font-size: 0.85em;
+      letter-spacing: 0;
+      transform: translateY(0);
+      opacity: 0.85;
+    }
+
+    html[data-lang="zh"] .hero__caption-group {
+      gap: 0.2em;
+    }
+
+    html[data-lang="zh"] .hero__caption-word {
+      letter-spacing: 0.14em;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.55rem;
+      font-size: var(--fs-ui);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-radius: var(--radius);
+      border: 1.5px solid transparent;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn--primary {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 10px 28px rgba(26, 42, 74, 0.22);
+    }
+
+    .btn--primary:hover {
+      background: var(--navy-deep);
+      box-shadow: 0 14px 32px rgba(26, 42, 74, 0.28);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--navy);
+      border-color: rgba(26, 42, 74, 0.28);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--gold);
+      color: var(--navy-deep);
+    }
+
+    /* ——— Sections ——— */
+    section { padding: 5.5rem 0; }
+
+    .section-head {
+      margin-bottom: 2.75rem;
+      max-width: 52rem;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 0.7rem;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-section);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 0.55rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: var(--fs-body);
+      font-weight: 400;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 0.9rem 0 0;
+    }
+
+    /* ——— About ——— */
+    #home { padding-top: 0; }
+
+    .about {
+      background:
+        linear-gradient(180deg, transparent, rgba(241, 237, 230, 0.65) 20%, rgba(241, 237, 230, 0.65) 80%, transparent);
+    }
+
+    .about__body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.7fr);
+      gap: clamp(1.75rem, 4vw, 3.25rem);
+      align-items: start;
+    }
+
+    .about__text {
+      max-width: 46rem;
+    }
+
+    .about__text p {
+      font-size: var(--fs-lead);
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 1.35rem;
+    }
+
+    .about__text p:last-child { margin-bottom: 0; }
+
+    .about__photo {
+      position: sticky;
+      top: calc(var(--nav-h) + 1.25rem);
+      width: min(100%, 340px);
+      justify-self: end;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--navy-soft);
+      border: 1px solid rgba(201, 169, 110, 0.45);
+      box-shadow: 0 18px 40px rgba(26, 42, 74, 0.12);
+    }
+
+    .about__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      display: block;
+      filter: saturate(0.94) contrast(1.03);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .stat {
+      padding: 1.35rem 1.1rem;
+      border-top: 2px solid var(--gold);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .stat__num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.55rem, 2.6vw, 2.1rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat__label {
+      font-size: var(--fs-meta);
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* ——— Career Evolution ——— */
+    #experience { background: var(--white); }
+
+    .evo {
+      position: relative;
+      display: grid;
+      gap: 0;
+      max-width: 52rem;
+    }
+
+    .evo::before {
+      content: "";
+      position: absolute;
+      left: 1.55rem;
+      top: 1.4rem;
+      bottom: 1.4rem;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold), rgba(26, 42, 74, 0.14));
+    }
+
+    .evo-stage {
+      position: relative;
+      display: grid;
+      grid-template-columns: 3.2rem 1fr;
+      gap: 1.15rem;
+      padding-bottom: 1.65rem;
+    }
+
+    .evo-stage:last-child { padding-bottom: 0; }
+
+    .evo-stage__marker {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1.35rem;
+    }
+
+    .evo-stage__num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.55rem, 2.4vw, 1.9rem);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--gold-dark);
+      letter-spacing: 0.04em;
+      width: 2.7rem;
+      height: 2.7rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1.5px solid rgba(201, 169, 110, 0.7);
+      box-shadow: 0 0 0 5px rgba(201, 169, 110, 0.12);
+    }
+
+    .evo-stage__card {
+      background: rgba(248, 246, 243, 0.72);
+      border: 1px solid rgba(26, 42, 74, 0.08);
+      border-top: 2px solid var(--gold);
+      padding: 1.35rem 1.45rem 1.2rem;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .evo-stage__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(26, 42, 74, 0.1);
+      border-color: rgba(201, 169, 110, 0.35);
+    }
+
+    .evo-stage__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem 0.75rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .evo-stage__label {
+      font-size: var(--fs-label);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .evo-stage__years {
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--navy-soft);
+    }
+
+    .evo-stage__tag {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+      font-weight: 700;
+      color: var(--gold-dark);
+      line-height: 1.2;
+      margin-bottom: 0.55rem;
+    }
+
+    .evo-stage__desc {
+      font-size: var(--fs-body);
+      line-height: 1.65;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .evo-stage__outcome {
+      font-size: var(--fs-body);
+      line-height: 1.6;
+      color: var(--navy-soft);
+      margin-bottom: 1.05rem;
+      padding: 0.65rem 0.85rem;
+      background: rgba(201, 169, 110, 0.1);
+      border-left: 2px solid var(--gold);
+    }
+
+    .evo-stage__outcome strong {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .evo-stage__org {
+      font-size: var(--fs-meta);
+      color: #8a8790;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* ——— Projects ——— */
+    #projects {
+      background:
+        radial-gradient(ellipse 50% 40% at 100% 0%, rgba(201, 169, 110, 0.12), transparent 50%),
+        var(--bg);
+    }
+
+    .project-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .project {
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--gold), var(--navy));
+    }
+
+    .project__case {
+      font-size: var(--fs-label);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 0.85rem;
+    }
+
+    .project__title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-card);
+      color: var(--navy);
+      margin-bottom: 0.55rem;
+      line-height: 1.25;
+    }
+
+    .project__subtitle {
+      font-size: var(--fs-body);
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 0.85rem;
+      max-width: 48rem;
+    }
+
+    .project__meta {
+      display: inline-block;
+      font-size: var(--fs-meta);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--navy-soft);
+      background: rgba(201, 169, 110, 0.14);
+      padding: 0.35rem 0.75rem;
+      margin-bottom: 1.45rem;
+    }
+
+    .project__blocks {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .project__block h4 {
+      font-size: var(--fs-label);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .project__block p {
+      color: var(--text);
+      font-size: var(--fs-body);
+      line-height: 1.7;
+    }
+
+    .project__lead {
+      margin-bottom: 0.85rem;
+    }
+
+    .project__points {
+      display: grid;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project__points li {
+      color: var(--text);
+      font-size: var(--fs-body);
+      line-height: 1.65;
+      padding-left: 0;
+    }
+
+    .project__points strong {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .project__impact {
+      padding: 0.85rem 1rem;
+      background: rgba(201, 169, 110, 0.1);
+      border-left: 2px solid var(--gold);
+      color: var(--navy);
+      font-size: var(--fs-body);
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .project__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.15rem;
+    }
+
+    .project__tags span {
+      font-size: var(--fs-meta);
+      font-weight: 500;
+      color: var(--navy);
+      border: 1px solid rgba(26, 42, 74, 0.16);
+      padding: 0.28rem 0.7rem;
+      background: var(--bg);
+    }
+
+    /* ——— Portfolio ——— */
+    #portfolio { background: var(--white); }
+
+    .portfolio-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .product-card__avatar--placeholder {
+      display: grid;
+      place-items: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      background: linear-gradient(160deg, #FFFFFF, #F1EDE6);
+    }
+
+    .product-card__link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 0.85rem;
+      font-size: var(--fs-ui);
+      font-weight: 600;
+      color: var(--navy);
+      border-bottom: 1.5px solid rgba(201, 169, 110, 0.65);
+      transition: color 0.2s ease, border-color 0.2s ease;
+      grid-column: 1 / -1;
+    }
+
+    .product-card__link:hover {
+      color: var(--gold-dark);
+      border-bottom-color: var(--gold);
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 1.15rem 1.25rem;
+      align-items: start;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 1.4rem 1.35rem 1.35rem;
+      position: relative;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      border-color: rgba(201, 169, 110, 0.55);
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--gold), var(--navy));
+    }
+
+    .product-card__avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(201, 169, 110, 0.55);
+      background: #FFFFFF;
+      grid-row: 1 / span 2;
+    }
+
+    .product-card__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .product-card__avatar--icon {
+      background: #FFFFFF;
+    }
+
+    .product-card__avatar--icon img {
+      object-fit: contain;
+      padding: 6px;
+    }
+
+    .product-card__body { min-width: 0; }
+
+    .product-card__tag {
+      display: inline-block;
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .product-card__title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-card);
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .product-card__intro {
+      font-size: var(--fs-body);
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    .product-card__features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 0.85rem;
+      margin: 0.15rem 0 0;
+      grid-column: 1 / -1;
+    }
+
+    .product-card__link + .product-card__features,
+    .product-card__highlight + .product-card__features {
+      margin-top: 0.35rem;
+    }
+
+    .product-card__features > span {
+      font-size: var(--fs-meta);
+      font-weight: 500;
+      color: var(--text-muted);
+      background: #EDEBE7;
+      border: none;
+      border-radius: 999px;
+      padding: 0.38rem 0.9rem;
+    }
+
+    .product-card__features > span span {
+      background: none;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .product-card__highlight {
+      font-size: var(--fs-meta);
+      color: var(--text);
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--line);
+      line-height: 1.45;
+      grid-column: 1 / -1;
+    }
+
+    .product-card__highlight strong {
+      color: var(--gold-dark);
+      font-weight: 600;
+    }
+
+    .folio-subhead {
+      margin: 0 0 1.35rem;
+    }
+
+    .folio-subhead + .portfolio-list + .folio-subhead,
+    .portfolio-list + .folio-subhead {
+      margin-top: 2.75rem;
+    }
+
+    .folio-subhead h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-card);
+      color: var(--navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .folio-subhead p {
+      color: var(--text-muted);
+      font-size: var(--fs-lead);
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .news-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      color: inherit;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201, 169, 110, 0.55);
+      box-shadow: var(--shadow);
+    }
+
+    .news-card__media {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--navy-soft);
+    }
+
+    .news-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .news-card:hover .news-card__media img {
+      transform: scale(1.04);
+    }
+
+    .news-card__body {
+      padding: 1.15rem 1.2rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.55rem;
+    }
+
+    .news-card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.75rem;
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+
+    .news-card__title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-sub);
+      line-height: 1.35;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .news-card__cta {
+      margin-top: auto;
+      padding-top: 0.55rem;
+      font-size: var(--fs-ui);
+      font-weight: 600;
+      color: var(--navy-soft);
+      border-top: 1px solid var(--line);
+    }
+
+    .news-card:hover .news-card__cta {
+      color: var(--gold-dark);
+    }
+
+    @media (max-width: 960px) {
+      .news-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .news-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ——— Competencies ——— */
+    #competencies {
+      background:
+        radial-gradient(ellipse 50% 40% at 0% 100%, rgba(201, 169, 110, 0.1), transparent 55%),
+        var(--bg);
+    }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .comp {
+      padding: 1.75rem 1.5rem;
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--gold);
+      background: var(--white);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .comp:hover {
+      border-color: rgba(201, 169, 110, 0.45);
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+
+    .comp h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-card);
+      color: var(--navy);
+      margin-bottom: 0.9rem;
+    }
+
+    .comp ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.7rem;
+    }
+
+    .comp li {
+      font-size: var(--fs-meta);
+      font-weight: 500;
+      padding: 0.38rem 0.85rem;
+      border: none;
+      border-radius: 999px;
+      color: var(--text-muted);
+      background: rgba(26, 42, 74, 0.06);
+    }
+
+    /* ——— Education ——— */
+    #education { background: var(--bg); }
+
+    .edu-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .edu {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      padding: 1.5rem 1.6rem;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--gold);
+    }
+
+    .edu__mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(201, 169, 110, 0.15);
+      color: var(--navy);
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-sub);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .edu__school {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-card);
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 0.25rem;
+    }
+
+    .edu__degree {
+      font-size: var(--fs-body);
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .edu__loc {
+      font-size: var(--fs-meta);
+      color: var(--text-muted);
+    }
+
+    /* ——— Footer ——— */
+    .footer {
+      background: var(--navy-deep);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+
+    .footer__name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--fs-card);
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .footer a {
+      color: var(--gold-light);
+      transition: color 0.2s ease;
+    }
+
+    .footer a:hover { color: var(--white); }
+
+    .footer p { font-size: var(--fs-meta); }
+
+    /* ——— Floating CTA ——— */
+    .ai-fab {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 1100;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.95rem 1.2rem;
+      background: var(--navy);
+      color: var(--white);
+      border: 1px solid rgba(201, 169, 110, 0.55);
+      border-radius: 999px;
+      box-shadow: 0 14px 36px rgba(15, 26, 48, 0.28);
+      font-size: var(--fs-ui);
+      font-weight: 600;
+      max-width: calc(100vw - 2rem);
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      animation: fabIn 0.8s ease 1s both, fabPulse 3.5s ease-in-out 2s infinite;
+    }
+
+    .ai-fab:hover {
+      transform: translateY(-3px) scale(1.02);
+      background: var(--navy-deep);
+      box-shadow: 0 18px 40px rgba(15, 26, 48, 0.35);
+      animation-play-state: paused;
+    }
+
+    .ai-fab__dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.55);
+      flex-shrink: 0;
+      animation: pingDot 2s ease-out infinite;
+    }
+
+    /* ——— Reveal ——— */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ——— Animations ——— */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes fabIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes fabPulse {
+      0%, 100% { box-shadow: 0 14px 36px rgba(15, 26, 48, 0.28); }
+      50% { box-shadow: 0 14px 36px rgba(15, 26, 48, 0.28), 0 0 0 8px rgba(201, 169, 110, 0.12); }
+    }
+
+    @keyframes pingDot {
+      0% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.55); }
+      70% { box-shadow: 0 0 0 8px rgba(201, 169, 110, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0); }
+    }
+
+    /* ——— Responsive ——— */
+    @media (max-width: 960px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .comp-grid { grid-template-columns: 1fr; }
+      .about__body {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .about__photo {
+        position: static;
+        justify-self: center;
+        width: min(100%, 280px);
+      }
+      .hero__layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+      .hero__content {
+        max-width: 36rem;
+        margin-inline: auto;
+      }
+      .hero__lead { margin-inline: auto; }
+      .hero__actions { justify-content: center; }
+      .hero__visual {
+        justify-self: center;
+        width: min(100%, 320px);
+        order: -1;
+      }
+      .hero__caption {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        left: 0;
+        right: auto;
+        bottom: 0.2rem;
+        letter-spacing: 0.14em;
+        background: transparent;
+        padding-left: 0.2rem;
+      }
+      .hero__caption-group {
+        flex-direction: row;
+        gap: 0.35em;
+      }
+      .hero__caption-word {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        letter-spacing: 0.14em;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav__toggle { display: flex; }
+
+      .nav__links {
+        position: fixed;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        background: rgba(248, 246, 243, 0.98);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 1.25rem 1.25rem;
+        gap: 0;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .nav__links.open {
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav__links a {
+        padding: 0.85rem 0.25rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav__links a:last-child { border-bottom: none; }
+      .nav__links a::after { display: none; }
+      .lang-toggle {
+        margin: 0.65rem 0 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 1.5rem, var(--max)); }
+      .hero__layout { width: min(100% - 1.5rem, var(--max)); }
+      section { padding: 4rem 0; }
+      .hero { padding: calc(var(--nav-h) + 1.8rem) 0 2.75rem; min-height: auto; }
+      .hero__visual { width: min(100%, 280px); }
+      .section-desc { white-space: normal; }
+      .stats { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      .evo::before { left: 1.2rem; }
+      .evo-stage { grid-template-columns: 2.6rem 1fr; gap: 0.85rem; }
+      .evo-stage__num { width: 2.3rem; height: 2.3rem; font-size: 1.35rem; }
+      .evo-stage__card { padding: 1.15rem 1.1rem 1.05rem; }
+      .project { padding: 1.6rem 1.25rem 1.6rem 1.5rem; }
+      .product-card {
+        padding: 1.25rem 1.1rem;
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 0.9rem 1rem;
+      }
+      .product-card__avatar {
+        width: 72px;
+        height: 72px;
+      }
+      .portfolio-list { grid-template-columns: 1fr; }
+      .ai-fab {
+        right: 0.85rem;
+        bottom: 0.85rem;
+        padding: 0.85rem 1rem;
+      }
+      .ai-fab__label-short { display: inline; }
+      .ai-fab__label-full { display: none; }
+    }
+
+    @media (min-width: 641px) {
+      .ai-fab__label-short { display: none; }
+      .ai-fab__label-full { display: inline; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__logo">
+        <span class="lang-en">Rong <span>Luo</span></span>
+        <span class="lang-zh">骆容</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#home"><span class="lang-en">Home</span><span class="lang-zh">首页</span></a>
+        <a href="#experience"><span class="lang-en">Career Evolution</span><span class="lang-zh">职业进化史</span></a>
+        <a href="#projects"><span class="lang-en">Projects</span><span class="lang-zh">项目</span></a>
+        <a href="#portfolio"><span class="lang-en">Portfolio</span><span class="lang-zh">作品集</span></a>
+        <a href="#competencies"><span class="lang-en">Competencies</span><span class="lang-zh">技能</span></a>
+        <a href="#education"><span class="lang-en">Education</span><span class="lang-zh">教育经历</span></a>
+        <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language">中文</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero__layout">
+        <div class="hero__content">
+          <h1 class="hero__name">
+            <span class="lang-en">Rong <em>Luo</em></span>
+            <span class="lang-zh">骆容</span>
+          </h1>
+          <p class="hero__title">
+            <span class="lang-en">Senior Brand &amp; Growth Specialist</span>
+            <span class="lang-zh">资深品牌与增长专家</span>
+          </p>
+          <p class="hero__lead">
+            <span class="lang-en">Bridging cultures. Empowering voices. Growing through impact.</span>
+            <span class="lang-zh">跨越文化 · 赋能品牌 · 驱动增长</span>
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#experience">
+              <span class="lang-en">View Career Evolution</span><span class="lang-zh">查看进化史</span>
+            </a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/rong-luo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__frame" aria-hidden="true"></div>
+          <div class="hero__photo">
+            <img
+              src="assets/rong-luo.png"
+              alt="Portrait of Rong Luo / 骆容个人照片"
+              width="720"
+              height="900"
+            />
+          </div>
+          <p class="hero__caption" aria-hidden="true">
+            <span class="lang-en hero__caption-group">
+              <span class="hero__caption-word">Brand</span>
+              <span class="hero__caption-sep">·</span>
+              <span class="hero__caption-word">Story</span>
+              <span class="hero__caption-sep">·</span>
+              <span class="hero__caption-word">Growth</span>
+            </span>
+            <span class="lang-zh hero__caption-group">
+              <span class="hero__caption-word">品牌</span>
+              <span class="hero__caption-sep">·</span>
+              <span class="hero__caption-word">故事</span>
+              <span class="hero__caption-sep">·</span>
+              <span class="hero__caption-word">增长</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title" id="about-title">
+            <span class="lang-en">About Me</span><span class="lang-zh">关于我</span>
+          </h2>
+          <p class="section-desc">
+            <span class="lang-en">Who I am, what drives me, and how I work across cultures.</span>
+            <span class="lang-zh">我是谁，驱动力是什么，以及我如何跨文化工作。</span>
+          </p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="about__body reveal">
+          <div class="about__text">
+            <p class="lang-en">
+              I'm a Brand &amp; Growth specialist who believes great strategy shouldn't stay in boardrooms — it should feel human, travel across cultures, and land with impact.
+            </p>
+            <p class="lang-zh">
+              我是一位拥有十年以上中英市场经验的品牌与增长专家。我相信，好的战略不该止步于会议室——它应该有人情味，能穿越文化，能真正产生影响。
+            </p>
+            <p class="lang-en">
+              For the past decade, I've been bridging China and UK markets — helping brands find their voice, tell stories that resonate, and build trust across languages and audiences. I work across brand positioning, GTM, and marketing technology, with a growing focus on AI orchestration.
+            </p>
+            <p class="lang-zh">
+              过去十年，我穿梭于中国和英国市场之间，帮助品牌找到自己的声音，讲出让人共鸣的故事，在不同语言和受众之间建立信任。我的工作覆盖品牌战略、GTM执行和营销技术，并越来越聚焦于AI在营销场景中的落地。
+            </p>
+            <p class="lang-en">
+              What drives me is making complex things feel simple: translating complex ideas into narratives that move people to act. And I do it all with warmth, clarity, and a genuine curiosity about how people connect — with brands, with each other, and with the world around them.
+            </p>
+            <p class="lang-zh">
+              把复杂的想法变成打动人心的叙事是我工作的核心与动力。我始终相信，做事的方式和做事的结果同样重要：带着温度、清晰和真诚的好奇心，去理解人如何与彼此、与品牌、与这个世界连接。
+            </p>
+            <p class="lang-en">
+              Outside work, I'm driven by curiosity and a love for learning. I've built an AI content system, a conversational AI resume agent, and a desktop pet time tracker, and I'm always tinkering with something new — because I believe the best way to understand new things is to play with it, and the best way to grow is to keep iterating.
+            </p>
+            <p class="lang-zh">
+              工作之外，我是一个充满好奇心的学习者。我独立开发了AI内容系统、AI简历助手和桌面宠物时间记录器——我相信，最好的学习方式就是动手去做，最好的成长方式是不断迭代。
+            </p>
+          </div>
+          <figure class="about__photo">
+            <img
+              src="assets/rong-luo.png"
+              alt="Portrait of Rong Luo / 骆容个人照片"
+              width="720"
+              height="900"
+            />
+          </figure>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat">
+            <div class="stat__num">
+              <span class="lang-en">10+ Years</span><span class="lang-zh">10+ 年</span>
+            </div>
+            <div class="stat__label">
+              <span class="lang-en">Cross-Cultural Experience</span><span class="lang-zh">跨文化经验</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">
+              <span class="lang-en">60%+ Faster</span><span class="lang-zh">提效 60%+</span>
+            </div>
+            <div class="stat__label">
+              <span class="lang-en">Content Production with AI</span><span class="lang-zh">AI 赋能内容生产</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">
+              <span class="lang-en">30%+ Growth</span><span class="lang-zh">增长 30%+</span>
+            </div>
+            <div class="stat__label">
+              <span class="lang-en">Inbound Lead</span><span class="lang-zh">高价值线索</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">
+              <span class="lang-en">20%+ Uplift</span><span class="lang-zh">提升 20%+</span>
+            </div>
+            <div class="stat__label">
+              <span class="lang-en">Brand Awareness</span><span class="lang-zh">品牌认知</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title" id="experience-title">
+            <span class="lang-en">Career Evolution</span><span class="lang-zh">职业进化史</span>
+          </h2>
+          <p class="section-desc">
+            <span class="lang-en">A capability-driven growth trajectory — from insights to AI-powered brand growth.</span>
+            <span class="lang-zh">以能力跃升为线索的成长路径 —— 从市场洞察到 AI 智能重构。</span>
+          </p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="evo">
+          <article class="evo-stage reveal">
+            <div class="evo-stage__marker" aria-hidden="true">
+              <span class="evo-stage__num">I</span>
+            </div>
+            <div class="evo-stage__card">
+              <div class="evo-stage__head">
+                <span class="evo-stage__label">Stage 1</span>
+                <span class="evo-stage__years">2011–2014</span>
+              </div>
+              <h3 class="evo-stage__tag">
+                <span class="lang-en">Market Insight</span><span class="lang-zh">市场洞察</span>
+              </h3>
+              <p class="evo-stage__desc lang-en">Developed content intuition and risk assessment at the editorial source.</p>
+              <p class="evo-stage__desc lang-zh">在图书出版源头建立内容判断力与市场风险洞察。</p>
+              <p class="evo-stage__outcome lang-en"><strong>2,000+</strong> proposals evaluated annually. Refined the assessment model. Drove <strong>17%+</strong> quality improvement.</p>
+              <p class="evo-stage__outcome lang-zh">评估<strong>2000+</strong>选题，优化评估模型，整体质量提升<strong>17%+</strong></p>
+              <p class="evo-stage__org">
+                <span class="lang-en">— Chongqing Publishing Group · Book Topic Evaluation Specialist</span>
+                <span class="lang-zh">— 重庆出版集团 · 图书选题评估专员</span>
+              </p>
+            </div>
+          </article>
+
+          <article class="evo-stage reveal">
+            <div class="evo-stage__marker" aria-hidden="true">
+              <span class="evo-stage__num">II</span>
+            </div>
+            <div class="evo-stage__card">
+              <div class="evo-stage__head">
+                <span class="evo-stage__label">Stage 2</span>
+                <span class="evo-stage__years">2014–2018</span>
+              </div>
+              <h3 class="evo-stage__tag">
+                <span class="lang-en">Brand Architecture</span><span class="lang-zh">体系塑造</span>
+              </h3>
+              <p class="evo-stage__desc lang-en">Built brand system from scratch and led regional benchmark projects.</p>
+              <p class="evo-stage__desc lang-zh">从零到一构建品牌架构，操盘覆盖168个业务点的区域标杆项目。</p>
+              <p class="evo-stage__outcome lang-en"><strong>53%</strong> program awareness growth. Attracted <strong>10+</strong> peer organisations for benchmarking visits.</p>
+              <p class="evo-stage__outcome lang-zh">项目认知度提升<strong>53%</strong> · 吸引<strong>10+</strong>同行机构研学借鉴</p>
+              <p class="evo-stage__org">
+                <span class="lang-en">— Chongqing Yangle Catering Management · Head of Brand Marketing</span>
+                <span class="lang-zh">— 重庆阳乐餐饮管理有限公司 · 品牌营销负责人</span>
+              </p>
+            </div>
+          </article>
+
+          <article class="evo-stage reveal">
+            <div class="evo-stage__marker" aria-hidden="true">
+              <span class="evo-stage__num">III</span>
+            </div>
+            <div class="evo-stage__card">
+              <div class="evo-stage__head">
+                <span class="evo-stage__label">Stage 3</span>
+                <span class="evo-stage__years">2018–2021</span>
+              </div>
+              <h3 class="evo-stage__tag">
+                <span class="lang-en">Ecosystem Scale</span><span class="lang-zh">规模放大</span>
+              </h3>
+              <p class="evo-stage__desc lang-en">Managed a 1M+ user content ecosystem with national platform reach.</p>
+              <p class="evo-stage__desc lang-zh">管理百万级用户的内容生态，让优质内容具备国家级平台穿透力。</p>
+              <p class="evo-stage__outcome lang-en"><strong>150+</strong> republications by national media outlets.</p>
+              <p class="evo-stage__outcome lang-zh"><strong>100万+</strong>用户，<strong>150+</strong>次国家级媒体转载</p>
+              <p class="evo-stage__org">
+                <span class="lang-en">— Pengshui Convergence Media Centre · Digital Content Editor</span>
+                <span class="lang-zh">— 彭水融媒体中心 · 数字内容编辑</span>
+              </p>
+            </div>
+          </article>
+
+          <article class="evo-stage reveal">
+            <div class="evo-stage__marker" aria-hidden="true">
+              <span class="evo-stage__num">IV</span>
+            </div>
+            <div class="evo-stage__card">
+              <div class="evo-stage__head">
+                <span class="evo-stage__label">Stage 4</span>
+                <span class="evo-stage__years">2022–2023</span>
+              </div>
+              <h3 class="evo-stage__tag">
+                <span class="lang-en">Cross-Cultural Storytelling</span><span class="lang-zh">跨文化叙事</span>
+              </h3>
+              <p class="evo-stage__desc lang-en">Navigated cross-cultural markets, turning cultural insights into brand narrative for international audiences.</p>
+              <p class="evo-stage__desc lang-zh">跨越中英市场，将文化洞察融入品牌叙事，驱动国际市场增长。</p>
+              <p class="evo-stage__outcome lang-en"><strong>18%</strong> increase in featured product sales. <strong>21%</strong> UGC engagement growth.</p>
+              <p class="evo-stage__outcome lang-zh">特色产品销量增长<strong>18%</strong>，UGC增长<strong>21%</strong></p>
+              <p class="evo-stage__org">— Fortnum &amp; Mason · Customer Experience &amp; Strategy Support</p>
+            </div>
+          </article>
+
+          <article class="evo-stage reveal">
+            <div class="evo-stage__marker" aria-hidden="true">
+              <span class="evo-stage__num">V</span>
+            </div>
+            <div class="evo-stage__card">
+              <div class="evo-stage__head">
+                <span class="evo-stage__label">Stage 5</span>
+                <span class="evo-stage__years">
+                  <span class="lang-en">2024–Present</span><span class="lang-zh">2024–至今</span>
+                </span>
+              </div>
+              <h3 class="evo-stage__tag">
+                <span class="lang-en">AI &amp; Intelligent Growth</span><span class="lang-zh">智能重构</span>
+              </h3>
+              <p class="evo-stage__desc lang-en">Fused brand capability with AI workflows to rebuild growth pipelines.</p>
+              <p class="evo-stage__desc lang-zh">将品牌能力与AI工作流融合，重构内容生产与增长链路。</p>
+              <p class="evo-stage__outcome lang-en"><strong>21%</strong> brand awareness growth. <strong>60%+</strong> content efficiency gains. <strong>30%+</strong> qualified lead growth.</p>
+              <p class="evo-stage__outcome lang-zh">品牌认知度提升<strong>21%</strong>，内容生产提效<strong>60%+</strong>，有效线索增长<strong>30%+</strong></p>
+              <p class="evo-stage__org">— Orthodontic Gallery · Marketing and Operations</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title" id="projects-title">
+            <span class="lang-en">Projects</span><span class="lang-zh">项目</span>
+          </h2>
+          <p class="section-desc">
+            <span class="lang-en">AI-powered content system · Large-scale campaign management · Stakeholder management · Cross-functional coordination</span>
+            <span class="lang-zh">AI 内容系统 · 大型项目 campaign 管理 · 利益相关方管理 · 跨职能协同</span>
+          </p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="project-list">
+          <article class="project reveal lang-en">
+            <div class="project__case">Case 01</div>
+            <h3 class="project__title">AI-Driven Content Engine</h3>
+            <p class="project__subtitle">A GDPR-compliant, automated content workflow for cross-cultural audience engagement.</p>
+            <div class="project__meta">2025 · Orthodontic Gallery, London</div>
+            <div class="project__blocks">
+              <div class="project__block">
+                <h4>The Context &amp; Vision</h4>
+                <p>Orthodontic Gallery needed to scale its multi-channel localized marketing across diverse demographics — without compromising clinical rigor, brand tone, or GDPR compliance. The goal wasn't just efficiency; it was building a content system that could think, adapt, and stay on-brand at scale.</p>
+              </div>
+              <div class="project__block">
+                <h4>The Architecture</h4>
+                <p class="project__lead">Instead of manual translation and fragmented workflows, I architected a closed-loop AI content engine:</p>
+                <ul class="project__points">
+                  <li><strong>RAG &amp; DAM Integration:</strong> Connected digital asset management with semantic retrieval to ensure brand voice and clinical accuracy across all output.</li>
+                  <li><strong>Automated Pipeline:</strong> Streamlined the end-to-end flow — from content generation, compliance review, and multi-channel distribution to performance analytics (GA4, Meta, CRM).</li>
+                </ul>
+              </div>
+              <div class="project__block">
+                <h4>Impact at a Glance</h4>
+                <p class="project__impact">-65% Content Production Time (equivalent to saving 2–3 FTEs) · Consistent Brand Expression · Reusable Knowledge Assets</p>
+              </div>
+              <div class="project__block">
+                <h4>Tags</h4>
+                <div class="project__tags">
+                  <span>AI Workflow</span>
+                  <span>Brand Localization</span>
+                  <span>GDPR Compliance</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal lang-en">
+            <div class="project__case">Case 02</div>
+            <h3 class="project__title">Scaling Public Trust: The Regional Nutrition Initiative</h3>
+            <p class="project__subtitle">An integrated brand-building and trust campaign for a regional nutrition programme spanning 168 locations and multi-tier stakeholders.</p>
+            <div class="project__meta">Chongqing Yangle Catering, China</div>
+            <div class="project__blocks">
+              <div class="project__block">
+                <h4>The Context &amp; Vision</h4>
+                <p>A large-scale project faced low initial awareness and complex stakeholder dynamics. The challenge wasn't just reaching people; it was building institutional and public trust across a fragmented ecosystem (schools, government, media, and parents).</p>
+              </div>
+              <div class="project__block">
+                <h4>The Strategic Approach</h4>
+                <p class="project__lead">Built the programme's communication framework and social content system from the ground up:</p>
+                <ul class="project__points">
+                  <li><strong>Stakeholder-Centric Messaging:</strong> Tailored content strategies — bite-sized education for parents, official bulletins for schools, and impact stories for public PR.</li>
+                  <li><strong>Replicable Campaign Toolkit:</strong> Built standardized content workflows enabling synchronized execution across 168 locations while maintaining single-voice consistency.</li>
+                </ul>
+              </div>
+              <div class="project__block">
+                <h4>Impact at a Glance</h4>
+                <p class="project__impact">10% ➔ 63% Program Awareness | Regional Benchmark Status | 10+ Peer Delegations Hosted | Replicable Model Adopted</p>
+              </div>
+              <div class="project__block">
+                <h4>Tags</h4>
+                <div class="project__tags">
+                  <span>Stakeholder Engagement</span>
+                  <span>Trust-Building</span>
+                  <span>Campaign Architecture</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal lang-zh">
+            <div class="project__case">项目一</div>
+            <h3 class="project__title">AI 内容引擎</h3>
+            <p class="project__subtitle">一套 GDPR 合规的自动化内容工作流，服务于跨文化受众的内容触达。</p>
+            <div class="project__meta">2025 · Orthodontic Gallery，伦敦</div>
+            <div class="project__blocks">
+              <div class="project__block">
+                <h4>背景与目标</h4>
+                <p>Orthodontic Gallery 需要在多元文化并存的伦敦市场，规模化地推进多渠道本地化营销——同时保持临床内容的严谨性、品牌调性的一致性和 GDPR 合规要求。这个项目的目标不止于提效，而是要构建一个能够思考、适应、并在规模化过程中始终守住品牌调性的内容系统。</p>
+              </div>
+              <div class="project__block">
+                <h4>架构思路</h4>
+                <p class="project__lead">摒弃人工翻译和碎片化的工作流，我设计了一套闭环的 AI 内容引擎：</p>
+                <ul class="project__points">
+                  <li><strong>RAG + DAM 融合：</strong>将数字资产管理接入语义检索能力，确保所有输出内容在品牌调性和临床准确性上保持统一。</li>
+                  <li><strong>自动化流水线：</strong>打通从内容生成、合规审查、多渠道分发到效果分析（GA4、Meta、CRM）的端到端流程，同时实现内容的自动沉淀与可复用管理。</li>
+                </ul>
+              </div>
+              <div class="project__block">
+                <h4>核心成果</h4>
+                <p class="project__impact">内容生产时间缩短 65%（相当于节省 2–3 名全职人力）· 品牌表达一致性 · 可复用的知识资产</p>
+              </div>
+              <div class="project__block">
+                <h4>标签</h4>
+                <div class="project__tags">
+                  <span>AI 工作流</span>
+                  <span>品牌本地化</span>
+                  <span>GDPR 合规</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal lang-zh">
+            <div class="project__case">项目二</div>
+            <h3 class="project__title">规模化公共信任：区域营养改善计划</h3>
+            <p class="project__subtitle">面向 168 个业务点和多层级利益相关方的品牌建设与公共信任传播项目。</p>
+            <div class="project__meta">重庆阳乐餐饮管理，中国</div>
+            <div class="project__blocks">
+              <div class="project__block">
+                <h4>背景与目标</h4>
+                <p>一个覆盖学校、政府、媒体和家长等多方利益相关者的大型民生项目，初期公众认知度偏低。项目需要解决的不仅是“触达”的问题，而是在一个高度分散的生态中，建立机构公信力与公众信任。</p>
+              </div>
+              <div class="project__block">
+                <h4>策略路径</h4>
+                <p class="project__lead">从零搭建项目的传播框架和社交内容体系：</p>
+                <ul class="project__points">
+                  <li><strong>分受众内容策略：</strong>为家长定制轻量化的科普内容，为学校提供官方信息通报，为公众媒体输出项目成果与影响力故事。</li>
+                  <li><strong>可复制的传播工具包：</strong>建立标准化的工作流，确保 168 个业务点在统一品牌表达的前提下同步执行传播动作。</li>
+                </ul>
+              </div>
+              <div class="project__block">
+                <h4>核心成果</h4>
+                <p class="project__impact">项目认知度从 10% 提升至 63% · 成为区域标杆 · 接待 10+ 同行机构交流学习 · 建立可复制模式并被其他区域项目采纳</p>
+              </div>
+              <div class="project__block">
+                <h4>标签</h4>
+                <div class="project__tags">
+                  <span>利益相关方沟通</span>
+                  <span>信任建设</span>
+                  <span>传播体系搭建</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title" id="portfolio-title">
+            <span class="lang-en">Portfolio</span><span class="lang-zh">作品集</span>
+          </h2>
+          <p class="section-desc">
+            <span class="lang-en">AI prototypes · Creative content · Published work · Personal explorations</span>
+            <span class="lang-zh">AI 原型 · 创意内容 · 公开发表作品 · 个人探索</span>
+          </p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="folio-subhead reveal">
+          <h3>
+            <span class="lang-en">Self-Developed AI Products</span>
+            <span class="lang-zh">自主开发的 AI 产品</span>
+          </h3>
+          <p>
+            <span class="lang-en">Independently developed · AI-enabled productivity, automation, and creative exploration.</span>
+            <span class="lang-zh">独立开发 · AI 驱动的效率、自动化与创意探索。</span>
+          </p>
+        </div>
+
+        <div class="portfolio-list">
+          <article class="product-card reveal">
+            <div class="product-card__avatar product-card__avatar--icon">
+              <img src="assets/rabbitbuddy-avatar.png" alt="RabbitBuddy desktop pet avatar" width="176" height="176" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__tag">
+                <span class="lang-en">Desktop Pet Time Tracker</span>
+                <span class="lang-zh">桌面宠物时间追踪</span>
+              </p>
+              <h3 class="product-card__title">RabbitBuddy</h3>
+              <p class="product-card__intro">
+                <span class="lang-en">A desktop pet that automatically tracks how you spend time on your computer.</span>
+                <span class="lang-zh">帮你自动记录电脑使用时间的桌面宠物工具。</span>
+              </p>
+            </div>
+            <p class="product-card__highlight">
+              <strong class="lang-en">Highlight:</strong><strong class="lang-zh">亮点：</strong>
+              <span class="lang-en"> Independently built end-to-end with Cursor — from need to working prototype.</span>
+              <span class="lang-zh"> 基于 Cursor 独立完成从需求到原型的端到端开发。</span>
+            </p>
+            <div class="product-card__features">
+              <span><span class="lang-en">Auto app tracking</span><span class="lang-zh">自动追踪应用</span></span>
+              <span><span class="lang-en">Time visualization</span><span class="lang-zh">时间可视化</span></span>
+              <span><span class="lang-en">Productivity insights</span><span class="lang-zh">效率洞察</span></span>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-card__avatar">
+              <img src="assets/ai-resume-agent.png" alt="Personal AI Resume Agent" width="176" height="176" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__tag">
+                <span class="lang-en">Conversational Resume</span>
+                <span class="lang-zh">对话式简历</span>
+              </p>
+              <h3 class="product-card__title">
+                <span class="lang-en">Personal AI Resume Agent</span>
+                <span class="lang-zh">个人 AI 简历助手</span>
+              </h3>
+              <p class="product-card__intro">
+                <span class="lang-en">Let recruiters chat with me in natural language to uncover work details and stories a static CV can’t fully show.</span>
+                <span class="lang-zh">让招聘者用自然语言与我对话，了解静态简历难以呈现的工作细节与故事。</span>
+              </p>
+            </div>
+            <p class="product-card__highlight">
+              <strong class="lang-en">Highlight:</strong><strong class="lang-zh">亮点：</strong>
+              <span class="lang-en"> Built with Dify + YouWare — answers questions, clarifies background, and handles follow-ups.</span>
+              <span class="lang-zh"> 基于 Dify + YouWare 构建——可回答问题、澄清背景并处理追问。</span>
+            </p>
+            <a class="product-card__link" href="https://tinyurl.com/rong-ai-assistant" target="_blank" rel="noopener noreferrer">
+              <span class="lang-en">Chat with my Resume Assistant →</span>
+              <span class="lang-zh">和我的简历助手聊聊 →</span>
+            </a>
+            <div class="product-card__features">
+              <span><span class="lang-en">Conversational Q&amp;A</span><span class="lang-zh">对话问答</span></span>
+              <span><span class="lang-en">Instant Response</span><span class="lang-zh">即时响应</span></span>
+              <span><span class="lang-en">Experience Deep-dive</span><span class="lang-zh">经历深挖</span></span>
+              <span><span class="lang-en">24/7 Available</span><span class="lang-zh">全天候在线</span></span>
+            </div>
+          </article>
+        </div>
+
+        <div class="folio-subhead reveal">
+          <h3>
+            <span class="lang-en">Published News Works</span>
+            <span class="lang-zh">公开发表的新闻作品</span>
+          </h3>
+          <p>
+            <span class="lang-en">Selection of feature stories and videos published on China's national media platforms.</span>
+            <span class="lang-zh">发表于中国国家级媒体平台的特稿与视频作品精选。</span>
+          </p>
+        </div>
+
+        <div class="news-grid">
+          <a class="news-card reveal" href="https://article.xuexi.cn/articles/index.html?art_id=11547552883645101923&amp;study_style_id=video_default&amp;source=share&amp;share_to=wx_single" target="_blank" rel="noopener noreferrer">
+            <div class="news-card__media">
+              <img src="https://boot-img.xuexi.cn/crawler/imageServer/26336426421026012_crop_1563866033684_h_422_w_750_1563866033699_h_422_w_750.jpg" alt="中国西部越野车场地邀请赛开赛" loading="lazy" />
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta lang-zh">
+                <span>2019</span>
+                <span>学习强国</span>
+              </div>
+              <h4 class="news-card__title">中国西部越野车场地邀请赛开赛</h4>
+              <span class="news-card__cta"><span class="lang-en">Read article →</span><span class="lang-zh">阅读原文 →</span></span>
+            </div>
+          </a>
+
+          <a class="news-card reveal" href="https://article.xuexi.cn/articles/index.html?art_id=11186388398985137716&amp;study_style_id=feeds_default&amp;source=share&amp;share_to=wx_single" target="_blank" rel="noopener noreferrer">
+            <div class="news-card__media">
+              <img src="https://boot-img.xuexi.cn/contribute_img/20190702171815/24546125094202787.jpg" alt="重庆彭水：幸福是奋斗出来的" loading="lazy" />
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta lang-zh">
+                <span>2019</span>
+                <span>学习强国</span>
+              </div>
+              <h4 class="news-card__title">重庆彭水：幸福是奋斗出来的</h4>
+              <span class="news-card__cta"><span class="lang-en">Read article →</span><span class="lang-zh">阅读原文 →</span></span>
+            </div>
+          </a>
+
+          <a class="news-card reveal" href="https://article.xuexi.cn/articles/index.html?art_id=1418364727628206850&amp;study_style_id=feeds_default&amp;source=share&amp;share_to=wx_single" target="_blank" rel="noopener noreferrer">
+            <div class="news-card__media">
+              <img src="https://boot-img.xuexi.cn/contribute_img/20190628171702/24200451825311549.jpg" alt="重庆彭水黄家镇红色之旅：为你讲述“一张留言条”的故事" loading="lazy" />
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta lang-zh">
+                <span>2019</span>
+                <span>学习强国</span>
+              </div>
+              <h4 class="news-card__title">重庆彭水黄家镇红色之旅：为你讲述“一张留言条”的故事</h4>
+              <span class="news-card__cta"><span class="lang-en">Read article →</span><span class="lang-zh">阅读原文 →</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="competencies" aria-labelledby="competencies-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-eyebrow">
+            <span class="lang-en">Capabilities</span><span class="lang-zh">技能矩阵</span>
+          </p>
+          <h2 class="section-title" id="competencies-title">
+            <span class="lang-en">Competencies</span><span class="lang-zh">技能</span>
+          </h2>
+          <p class="section-desc">
+            <span class="lang-en">A practical toolkit spanning brand strategy, growth execution, content operations, and AI-enabled marketing systems.</span>
+            <span class="lang-zh">覆盖品牌策略、增长执行、内容运营与 AI 驱动营销系统的实用能力组合。</span>
+          </p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="comp-grid">
+          <article class="comp reveal">
+            <h3><span class="lang-en">Brand &amp; Strategy</span><span class="lang-zh">品牌与策略</span></h3>
+            <ul>
+              <li><span class="lang-en">Brand Positioning</span><span class="lang-zh">品牌定位</span></li>
+              <li><span class="lang-en">Brand Governance</span><span class="lang-zh">品牌治理</span></li>
+              <li><span class="lang-en">Cross-Cultural Storytelling</span><span class="lang-zh">跨文化叙事</span></li>
+              <li><span class="lang-en">Localized Brand Expression</span><span class="lang-zh">本地化品牌表达</span></li>
+              <li><span class="lang-en">Reputation Management</span><span class="lang-zh">声誉管理</span></li>
+            </ul>
+          </article>
+
+          <article class="comp reveal">
+            <h3><span class="lang-en">Marketing &amp; Growth</span><span class="lang-zh">营销与增长</span></h3>
+            <ul>
+              <li><span class="lang-en">UK / Europe / China GTM Strategy</span><span class="lang-zh">英 / 欧 / 中 GTM 策略</span></li>
+              <li><span class="lang-en">Integrated Campaign Design</span><span class="lang-zh">整合营销</span></li>
+              <li><span class="lang-en">Partnership Development</span><span class="lang-zh">合作伙伴拓展</span></li>
+              <li><span class="lang-en">Stakeholder Management</span><span class="lang-zh">利益相关方管理</span></li>
+              <li><span class="lang-en">Data Analysis (GA4, Meta)</span><span class="lang-zh">数据分析（GA4、Meta）</span></li>
+            </ul>
+          </article>
+
+          <article class="comp reveal">
+            <h3><span class="lang-en">Content &amp; Operations</span><span class="lang-zh">内容与运营</span></h3>
+            <ul>
+              <li><span class="lang-en">Content Strategy &amp; Localization</span><span class="lang-zh">内容策略与本地化</span></li>
+              <li><span class="lang-en">Marketing Enablement</span><span class="lang-zh">营销赋能</span></li>
+              <li>Digital Asset Management (DAM)</li>
+              <li><span class="lang-en">Multi-Channel Content Engine</span><span class="lang-zh">多渠道内容引擎</span></li>
+              <li><span class="lang-en">End-to-End Workflow Design</span><span class="lang-zh">端到端工作流设计</span></li>
+              <li><span class="lang-en">GDPR Compliance</span><span class="lang-zh">GDPR合规</span></li>
+            </ul>
+          </article>
+
+          <article class="comp reveal">
+            <h3><span class="lang-en">AI Solutions</span><span class="lang-zh">AI 解决方案</span></h3>
+            <ul>
+              <li><span class="lang-en">AI Workflow Orchestration (Dify, Coze, n8n)</span><span class="lang-zh">AI 工作流编排（Dify、Coze、n8n）</span></li>
+              <li><span class="lang-en">RAG Knowledge Systems</span><span class="lang-zh">RAG 知识系统</span></li>
+              <li><span class="lang-en">Prompt Engineering</span><span class="lang-zh">提示词工程</span></li>
+              <li>Function Calling</li>
+              <li>Vibe Coding (Cursor, Claude)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" aria-labelledby="education-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-eyebrow">
+            <span class="lang-en">Academic Background</span><span class="lang-zh">学术背景</span>
+          </p>
+          <h2 class="section-title" id="education-title">
+            <span class="lang-en">Education</span><span class="lang-zh">教育经历</span>
+          </h2>
+          <p class="section-desc">
+            <span class="lang-en">Interdisciplinary training across digital media management, communication, finance, and language &amp; literature.</span>
+            <span class="lang-zh">跨数字媒资管理、传播学、金融与语言文学的复合背景。</span>
+          </p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="edu-list">
+          <article class="edu reveal">
+            <div class="edu__mark" aria-hidden="true">K</div>
+            <div>
+              <h3 class="edu__school">King’s College London</h3>
+              <p class="edu__degree">
+                <span class="lang-en">MA Digital Asset and Media Management (Merit)</span>
+                <span class="lang-zh">数字资产与媒体管理硕士（Merit）</span>
+              </p>
+              <p class="edu__loc">
+                <span class="lang-en">United Kingdom</span><span class="lang-zh">英国</span>
+              </p>
+            </div>
+          </article>
+
+          <article class="edu reveal">
+            <div class="edu__mark" aria-hidden="true">S</div>
+            <div>
+              <h3 class="edu__school">
+                <span class="lang-en">Sichuan University</span><span class="lang-zh">四川大学</span>
+              </h3>
+              <p class="edu__degree">
+                <span class="lang-en">MA Communication Studies &amp; BA Financial Management</span>
+                <span class="lang-zh">传播学硕士 &amp; 金融管理学士</span>
+              </p>
+              <p class="edu__loc">
+                <span class="lang-en">China</span><span class="lang-zh">中国</span>
+              </p>
+            </div>
+          </article>
+
+          <article class="edu reveal">
+            <div class="edu__mark" aria-hidden="true">C</div>
+            <div>
+              <h3 class="edu__school">
+                <span class="lang-en">Chongqing Technology and Business University</span>
+                <span class="lang-zh">重庆工商大学</span>
+              </h3>
+              <p class="edu__degree">
+                <span class="lang-en">BA Chinese Language and Literature</span>
+                <span class="lang-zh">汉语言文学学士</span>
+              </p>
+              <p class="edu__loc">
+                <span class="lang-en">China</span><span class="lang-zh">中国</span>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__name">
+        <span class="lang-en">Rong Luo</span>
+        <span class="lang-zh">骆容</span>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/rong-luo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        ·
+        <a href="https://tinyurl.com/rong-ai-assistant" target="_blank" rel="noopener noreferrer">
+          <span class="lang-en">AI Resume Assistant</span><span class="lang-zh">AI 简历助手</span>
+        </a>
+      </p>
+      <p style="margin-top: 0.75rem;">
+        © <span id="year"></span>
+        <span class="lang-en">Rong Luo.</span>
+        <span class="lang-zh">骆容。</span>
+        <span class="lang-en">All rights reserved.</span>
+        <span class="lang-zh">版权所有。</span>
+      </p>
+    </div>
+  </footer>
+
+  <a class="ai-fab" href="https://tinyurl.com/rong-ai-assistant" target="_blank" rel="noopener noreferrer">
+    <span class="ai-fab__dot" aria-hidden="true"></span>
+    <span class="ai-fab__label-full">
+      <span class="lang-en">Chat with my AI resume assistant</span>
+      <span class="lang-zh">和我的 AI 简历助手聊聊</span>
+    </span>
+    <span class="ai-fab__label-short">
+      <span class="lang-en">AI Resume Chat</span>
+      <span class="lang-zh">AI 简历对话</span>
+    </span>
+  </a>
+
+  <script>
+    (function () {
+      const nav = document.getElementById("nav");
+      const toggle = document.getElementById("navToggle");
+      const links = document.getElementById("navLinks");
+      const navAnchors = links.querySelectorAll("a");
+      const yearEl = document.getElementById("year");
+      const langToggle = document.getElementById("langToggle");
+      const LANG_KEY = "rong-site-lang";
+
+      yearEl.textContent = new Date().getFullYear();
+
+      const applyLang = (lang) => {
+        const isZh = lang === "zh";
+        document.documentElement.setAttribute("data-lang", isZh ? "zh" : "en");
+        document.documentElement.lang = isZh ? "zh-CN" : "en";
+        langToggle.textContent = isZh ? "English" : "中文";
+        document.title = isZh
+          ? "骆容 | 品牌与增长专家"
+          : "Rong Luo | Brand & Growth Specialist";
+        try {
+          localStorage.setItem(LANG_KEY, lang);
+        } catch (e) {}
+      };
+
+      let currentLang = "en";
+      try {
+        const saved = localStorage.getItem(LANG_KEY);
+        if (saved === "zh" || saved === "en") currentLang = saved;
+      } catch (e) {}
+      applyLang(currentLang);
+
+      langToggle.addEventListener("click", () => {
+        currentLang = currentLang === "en" ? "zh" : "en";
+        applyLang(currentLang);
+      });
+
+      const onScroll = () => {
+        nav.classList.toggle("scrolled", window.scrollY > 12);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      toggle.addEventListener("click", () => {
+        const open = links.classList.toggle("open");
+        toggle.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+
+      navAnchors.forEach((a) => {
+        a.addEventListener("click", () => {
+          links.classList.remove("open");
+          toggle.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      const sections = ["home", "experience", "projects", "portfolio", "competencies", "education"]
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+      const setActive = () => {
+        const y = window.scrollY + 120;
+        let current = "home";
+        sections.forEach((sec) => {
+          if (sec.offsetTop <= y) current = sec.id;
+        });
+        navAnchors.forEach((a) => {
+          a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+        });
+      };
+      setActive();
+      window.addEventListener("scroll", setActive, { passive: true });
+
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+      revealEls.forEach((el) => io.observe(el));
+    })();
+  </script>
+</body>
+</html>
